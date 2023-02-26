@@ -37,7 +37,6 @@
 				$shortNomenclatures1  = $shortNomenclaturesWithItems($goods, $warehouse1_quantity);
 				foreach ($shortNomenclatures1 as $key => $value) {
 						echo '<li>Код товара: ' . $value['short_names'] . ', Остаток: ' . $value['quantity'] . 'шт;</li>';
-
 				} 
 			?>
 		</ul>

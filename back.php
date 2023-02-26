@@ -35,10 +35,6 @@ $sumQuantityWh = function ($wh) use ($pdo) {
 	$sql_sum_quantity_wh = "SELECT warehouse" . "$wh" . "_quantity FROM `remnants of goods` WHERE warehouse" . "$wh" . "_quantity > 0";
 	$rst_sum_quantity_wh = $pdo->query($sql_sum_quantity_wh);
 	$sum_quantity_wh = $rst_sum_quantity_wh->fetchAll(PDO::FETCH_COLUMN, 0);
-	//print_r($sum_quantity_wh);
-	/*for ($i=0; $i < count($sum_quantity_wh); $i++) { 
-		$array[] = $sum_quantity_wh[$i]["warehouse" . "$wh" . "_quantity"];
-	}*/
 	$sum_array = array_sum($sum_quantity_wh);
 
 	return $sum_array;
@@ -77,11 +73,8 @@ $convertToJson = function($goods, $shortNamesList) {
 			$jsonArray[$fullName] = [$item['short_names'], "склад " . ++$i, $item['quantity']];
 		}
 	}
-	//echo '<pre>';
-	//var_dump($jsonArray);
-	//echo '</pre>';
 	return json_encode($jsonArray);
 };
 
 
-//$data = json_encode($jsonArray);
+
